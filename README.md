@@ -36,9 +36,7 @@ Test case: [GitHub-Documentation-Rag-Agent](https://github.com/Mandoa-Labs/GitHu
 | Required files found (of 3) | 0 and 1 | 3 |
 | API direction understood (client of Ollama) | No | Yes |
 | Report diffs that apply (`git apply --check`) | None (target files don't exist) | 2 / 3 |
-| Report diffs fully correct | 0 | 1 / 3 |
 
-These come from a small number of runs with free models, so treat them as indicative rather than a benchmark.
 
 ## Known limitations
 
