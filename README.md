@@ -37,6 +37,11 @@ Test case: [GitHub-Documentation-Rag-Agent](https://github.com/Mandoa-Labs/GitHu
 | API direction understood (client of Ollama) | No | Yes |
 | Report diffs that apply (`git apply --check`) | None (target files don't exist) | 2 / 3 |
 
+## Limitations
+
+- The aggregator rewrites the diffs in the final report and can add details that don't exist in the code (e.g. rollback and monitoring sections).
+- A diff can compile and still be wrong at runtime. The test repo has no tests, so this isn't caught automatically.
+- Diffs are not validated automatically yet (`git apply --check` + compile is the next step).
 
 ## How to run
 
