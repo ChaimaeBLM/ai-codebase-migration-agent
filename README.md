@@ -38,22 +38,6 @@ Test case: [GitHub-Documentation-Rag-Agent](https://github.com/Mandoa-Labs/GitHu
 | Report diffs that apply (`git apply --check`) | None (target files don't exist) | 2 / 3 |
 
 
-## Known limitations
-
-- **A diff can compile and still be wrong.** In the test run, the `src/llama.py` diff kept the old `"prompt"` field, which `/api/embed` doesn't accept. Only a test would catch this, and the test repo has none. Always review diffs before applying them.
-- **The aggregator rewrites the diffs** when it builds the report, and can add details that don't exist in the code (class names, infrastructure).
-- **Diffs are not validated automatically** yet.
-- **Notebooks** get new cell contents instead of a diff, so they can't be checked with `git apply`.
-- **The graph's memory is in RAM.** Restarting the app loses a plan that's waiting for approval.
-
-## Next steps
-
-1. Insert the workers' diffs into the report as-is, and let the aggregator write only the summary.
-2. Validate each diff with `git apply --check` and a compile check, and show the result per file.
-3. Generate characterization tests before migrating repos that have none.
-4. Persistent checkpoints (e.g. SQLite), tracing, and cost per run.
-5. Support a self-hosted model for code that can't leave a client's network.
-
 ## How to run
 
 **Requirements:** Python 3.10+ and **git** (used to clone the target repository).
